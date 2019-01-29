@@ -17,7 +17,6 @@ function out=FACTORS(N)
 % If N is missing or not a real, positive, numeric, integer-valued scalar
 % having value less than flintmax, an error string is returned by the
 % function error that states what is wrong with the input argument.
-
 %
 % No For or While loops permitted.
 % No extraneous output to the Command Window.
@@ -25,19 +24,29 @@ function out=FACTORS(N)
  
 % Mohammed, Al Sayegh
 % 2019/01/29
-    
-    l = 0:N;
-    ind = rem(N,l)==0;
 
-    x1 = [l(ind)];
-    x3 = fliplr(x1);
+    tf = isa(N,'double');
+    if(tf && N>-1)
+        x = mod(N,1);
+        if (x == 0)
+        	l = 0:N;
+            ind = rem(N,l)==0;
 
-    lx = (length(x1));
-    half = ceil(lx/2);
-    s1 = x1(1:half);
+            x1 = [l(ind)];
+            x3 = fliplr(x1);
 
-    lx = (length(x3));
-    half = ceil(lx/2);
-    s2 = x3(1:half);
+            lx = (length(x1));
+            half = ceil(lx/2);
+            s1 = x1(1:half);
 
-    ans = [s1;s2]
+            lx = (length(x3));
+            half = ceil(lx/2);
+            s2 = x3(1:half);
+
+            ans = [s1;s2]
+        else
+            disp('Re-enter a vaild value');
+        end
+    else
+        disp('Re-enter a vaild value');
+    end
