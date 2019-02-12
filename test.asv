@@ -1,8 +1,0 @@
-A = input("Enter tha value for factor: ");
-tf = isa(A,'double');
-if(tf)
-    x = mod(A,1);
-    if (x == 0 )
-    disp('It is an integer!')
-    end
-end
